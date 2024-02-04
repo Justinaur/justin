@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://malvorlagen-seite.de/wp-content/uploads/2023/03/herzen-hintergrund-2-scaled.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        #startbildContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        #startbild {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        #zentralesBild {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 70%;
+            margin-bottom: 100px;
+            
+        }
+
+        #unterText {
+            font-size: 18px;
+            font-weight: bold;
+            color: rgb(0, 0, 0);
+        }
+
+        .button-container {
+            display: flex;
+        }
+
+        .button {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        #jaButton {
+            background-color: green;
+            color: white;
+        }
+
+        #neinButton {
+            background-color: red;
+            color: white;
+        }
+
+        #neinButton:hover {
+            transform: scale(1.1);
+        }
+    </style>
+    <title>Aurelia Page</title>
+</head>
+<body>
+    <div id="startbildContainer">
+        <img id="startbild" src="Akuchen.jpg" alt="Startbild">
+    </div>
+    <img id="zentralesBild" src="" alt="Bild in der Mitte">
+    <p id="unterText">Aurelia liebst du mich noch?</p>
+    <div class="button-container">
+        <button class="button" id="jaButton" onclick="zeigeLiebesseite()">Ja</button>
+        <button class="button" id="neinButton" onclick="vergroessereJaButton()">Nein</button>
+    </div>
+    <p>du schaust sosoososo gut aus</p>
+
+    <script>
+        var neinButtonTexte = ["Bitte?", "Komm schon", "Wie gemein du bist", "Ich dich auch????", "HEYYYYYYY", "Dann nicht", "aso", "Klick auf Ja bitte"];
+
+        function vergroessereJaButton() {
+            var jaButton = document.getElementById('jaButton');
+            var currentScale = jaButton.style.transform ? parseFloat(jaButton.style.transform.match(/\d+(\.\d+)?/)[0]) : 1;
+            jaButton.style.transform = 'scale(' + (currentScale + 0.3) + ')';
+            
+            var neinButton = document.getElementById('neinButton');
+            var randomText = neinButtonTexte[Math.floor(Math.random() * neinButtonTexte.length)];
+            neinButton.innerText = randomText;
+        }
+
+        function zeigeLiebesseite() {
+            var startbildContainer = document.getElementById('startbildContainer');
+            startbildContainer.style.display = 'none';
+
+            var zentralesBild = document.getElementById('zentralesBild');
+            zentralesBild.src = 'Azus.jpg'; 
+            
+            var unterText = document.getElementById('unterText');
+            unterText.innerText = 'Ich liebe dich auch noch hehehehehhe';
+
+            var jaButton = document.getElementById('jaButton');
+            jaButton.style.display = 'none';
+
+            var neinButton = document.getElementById('neinButton');
+            neinButton.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
